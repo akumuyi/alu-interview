@@ -39,12 +39,3 @@ def minOperations(n):
     return operations
 
 if __name__ == "__main__":
-    # Example usage
-    n1 = 14
-    result1 = minOperations(n1)
-    print(f"Min number of operations to reach {n1} characters: {result1}")
-
-    n2 = 100
-    result2 = minOperations(n2)
-    print(f"Min number of operations to reach {n2} characters: {result2}")
-
