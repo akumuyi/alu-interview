@@ -1,20 +1,21 @@
 #!/usr/bin/python3
 """
-This script contains a function, minOperations, that calculates 
-the fewest number of operations needed to result in exactly n 
+This script contains a function, minOperations, that calculates
+the fewest number of operations needed to result in exactly n
 characters 'H' in a text file.
 """
 
+
 def minOperations(n):
     """
-    Calculates the fewest number of operations needed 
+    Calculates the fewest number of operations needed
     to result in exactly n characters 'H' in a text file.
 
     Parameters:
     - n (int): The desired number of 'H' characters in the file.
 
     Returns:
-    int: The minimum number of operations required. If n is 
+    int: The minimum number of operations required. If n is
     impossible to achieve, returns 0.
     """
 
@@ -23,9 +24,9 @@ def minOperations(n):
         return 0
 
     # Initialize variables
-    operations = 0        # Total number of operations
-    current_length = 1    # Current length of the sequence of characters in the file
-    clipboard = 1        # Number of characters currently stored in the clipboard
+    operations = 0
+    current_length = 1
+    clipboard = 1
 
     # Continue until the current length reaches or exceeds n
     while current_length < n:
