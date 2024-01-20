@@ -32,7 +32,7 @@ def minOperations(n):
     while current_length < n:
         # Check if n is divisible by the current length
         if n % current_length == 0:
-            clipboard = current_length  # Update clipboard to the current length
+            clipboard = current_length
             operations += 1
 
         operations += 1
