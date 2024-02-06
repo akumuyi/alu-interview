@@ -1,42 +1,33 @@
 #!/usr/bin/python3
-   """
-    Calculate the total amount of rainwater retained after rain.
-
-    Args:
-        walls (list): A list of non-negative integers representing wall heights.
-
-    Returns:
-        int: Total amount of rainwater retained in square units.
-
-    Assumptions:
-        - The ends of the list (before index 0 and after index walls[-1]) are not walls,
-          meaning they will not retain water.
-        - If the list is empty, the function returns 0.
-    """
+"""Module for the rain function
+"""
 
 
 def rain(walls):
     """Function to find the maximum rain collected
     by a series of walls
     """
-    if not walls:
+    n = len(walls)
+
+    if n == 0:
         return 0
 
-    n = len(walls)
-    left_max = [0] * n
-    right_max = [0] * n
+    total_volume = 0
 
-    left_max[0] = walls[0]
+    # Find the highest element to the left of each element
+    highest_left = [0] * n
+    highest_left[0] = walls[0]
     for i in range(1, n):
-        left_max[i] = max(left_max[i-1], walls[i])
+        highest_left[i] = max(highest_left[i - 1], walls[i])
 
-    right_max[n-1] = walls[n-1]
-    for i in range(n-2, -1, -1):
-        right_max[i] = max(right_max[i+1], walls[i])
+    # Find the highest wall to the right of each
+    highest_right = [0] * n
+    highest_right[-1] = walls[-1]
+    for i in range(n - 2, -1, -1):
+        highest_right[i] = max(highest_right[i + 1], walls[i])
 
-    water_retained = 0
-    for i in range(n):
-        water_retained += max(0, min(left_max[i], right_max[i]) - walls[i])
+    # Calculate the accumulated water element by element
+    for i in range(0, n):
+        total_volume += min(highest_left[i], highest_right[i]) - walls[i]
 
-    return water_retained
-
+    return total_volume
