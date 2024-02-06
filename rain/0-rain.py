@@ -16,6 +16,9 @@
 
 
 def rain(walls):
+    """Function to find the maximum rain collected
+    by a series of walls
+    """
     if not walls:
         return 0
 
